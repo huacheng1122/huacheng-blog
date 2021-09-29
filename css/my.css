@@ -72,3 +72,9 @@ body{
     display: initial;
     vertical-align: middle;
 }
+*{
+    cursor: url("/medias/blue.png"),auto!important;
+}
+:active{
+    cursor: url("/medias/blue.png"),auto!important;
+}
