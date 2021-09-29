@@ -73,8 +73,8 @@ body{
     vertical-align: middle;
 }
 *{
-    cursor: url("/medias/blue.ico"),auto!important;
+    cursor: url("/medias/blue1.ico"),auto!important;
 }
 :active{
-    cursor: url("/medias/blue.ico"),auto!important;
+    cursor: url("/medias/blue1.ico"),auto!important;
 }
