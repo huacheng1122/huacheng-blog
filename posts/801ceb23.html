@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="花城 计算机 网络安全 渗透测试">
+    <meta name="keywords" content="攻防世界web高手进阶之blgdel, 花城 计算机 网络安全 渗透测试">
     <meta name="description" content="本科 | 太原理工大学 | 信息安全">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>花城</title>
+    <title>攻防世界web高手进阶之blgdel | 花城</title>
 
     <link rel="icon" type="image/jpeg" href="https://bucket-1305778438.cos.ap-shanghai.myqcloud.com/myblog/logo2.jpg">
 
@@ -527,12 +527,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021815.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">攻防世界web高手进阶之blgdel</h1>
                 </div>
             </div>
         </div>
@@ -651,12 +651,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="post-category">
+                                博客篇
+                            </a>
+                        
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/CTF%E7%AC%94%E8%AE%B0%E7%AF%87/" class="post-category">
+                                CTF笔记篇
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -665,28 +686,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-26
+                    2021-09-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-26
+                    2021-09-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1
+                    546
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -704,7 +725,175 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                aed9da353918032f2fbb28bf2b3a4a22
+                <h2 id="0x001-wp"><a href="#0x001-wp" class="headerlink" title="0x001 wp"></a>0x001 wp</h2><hr>
+<ul>
+<li>打开页面</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/43d38460fac65bb460bd1a1b69af53ff.png#pic_center" alt=""></p>
+<hr>
+<ul>
+<li>查看页面后，常规操作~扫一下目录</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/857458ff1c0ea196e2fc3146e5c1cca1.png#pic_center" alt=""></p>
+<hr>
+<ul>
+<li>发现几个目录可能有线索<br><code>robots.txt</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/27147afa2b39a7f2bb8b125ebf5390b4.png#pic_center" alt=""></p>
+<p><code>config.txt</code> 代码审计</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">master</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token variable">$path</span><span class="token punctuation">;</span>
+	<span class="token keyword">private</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">function</span> <span class="token function">stream_open</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/(.*)\/(.*)$/s'</span><span class="token punctuation">,</span><span class="token variable">$path</span><span class="token punctuation">,</span><span class="token variable">$array</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token variable">$a</span><span class="token operator">=</span><span class="token variable">$array</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token function">parse_str</span><span class="token punctuation">(</span><span class="token variable">$array</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$array</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'path'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">path</span><span class="token operator">=</span><span class="token variable">$array</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'path'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">else</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$array</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span><span class="token operator">=</span><span class="token variable">$array</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">else</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">===</span><span class="token single-quoted-string string">'upload'</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">upload</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">path</span><span class="token punctuation">,</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">elseif</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">===</span><span class="token single-quoted-string string">'search'</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">path</span><span class="token punctuation">,</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">else</span> 
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">,</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/^uploads\/[a-z]{10}\/$/is'</span><span class="token punctuation">,</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token variable">$name</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		
+		<span class="token variable">$filename</span><span class="token operator">=</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token variable">$name</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">echo</span> <span class="token variable">$filename</span><span class="token punctuation">;</span>
+		
+		<span class="token variable">$file</span><span class="token operator">=</span><span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token variable">$name</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		<span class="token variable">$file</span><span class="token operator">=</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'&lt;'</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'!'</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$file</span><span class="token operator">=</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token function">urldecode</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'%03'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'!'</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$file</span><span class="token operator">=</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'"'</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'!'</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$file</span><span class="token operator">=</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"'"</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'!'</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token variable">$file</span><span class="token operator">=</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'.'</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'!'</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/file:|http|pre|etc/is'</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">echo</span> <span class="token single-quoted-string string">'illegalbbbbbb!'</span><span class="token punctuation">;</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		
+		<span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">.</span><span class="token variable">$filename</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">.</span><span class="token single-quoted-string string">'user.jpg'</span><span class="token punctuation">,</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'upload success!'</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">function</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">,</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_dir</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">echo</span> <span class="token single-quoted-string string">'illegal!'</span><span class="token punctuation">;</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token variable">$files</span><span class="token operator">=</span><span class="token function">scandir</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'&lt;/br&gt;'</span><span class="token punctuation">;</span>
+		<span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$files</span> <span class="token keyword">as</span> <span class="token variable">$k</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token variable">$v</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">str_ireplace</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token single-quoted-string string">''</span><span class="token punctuation">,</span><span class="token variable">$v</span><span class="token punctuation">)</span><span class="token operator">!==</span><span class="token variable">$v</span><span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				<span class="token keyword">echo</span> <span class="token variable">$v</span><span class="token punctuation">.</span><span class="token single-quoted-string string">'&lt;/br&gt;'</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">function</span> <span class="token function">stream_eof</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean constant">true</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">function</span> <span class="token function">stream_read</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token single-quoted-string string">''</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">function</span> <span class="token function">stream_stat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token single-quoted-string string">''</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+<span class="token punctuation">}</span>
+
+<span class="token function">stream_wrapper_unregister</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">stream_wrapper_unregister</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'phar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">stream_wrapper_unregister</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'zip'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">stream_wrapper_register</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'master'</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'master'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token delimiter important">?&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>还有<code>sql.txt</code>  数据库的一些信息</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/ecfb6866404adeea930b7aae67647191.png#pic_center" alt=""></p>
+<hr>
+<ul>
+<li>注册登录后，访问<code>user.php</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/80c6c0923bb71842cfe1a7c4bb5a001a.png#pic_center" alt=""></p>
+<p>看到有文件上传，试着上传一句马，积分达到100分才可上传文件，通过刷推荐人达到，上传后，访问<code>uploads</code>路径下上传的文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/7de7b6ea4723a05510a037738e55b48e.png#pic_center" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/a75b77b5a219fc1482e278bf57718bbc.png#pic_center" alt=""></p>
+<p>发现代码被过滤，查看<code>config.txt</code>,上传的文件内容过滤了&lt;等符号<br>看了<code>dalao</code>的<code>wp</code>，说是这里可以上传<code>.htaccess</code>文件，用<code>.htaccess</code>修改配置文件</p>
+<p><strong><code>.htaccess</code>相关介绍，在这里<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/adforce/archive/2012/11/23/2784664.html">https://www.cnblogs.com/adforce/archive/2012/11/23/2784664.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/cmzhuang/article/details/53537591">https://blog.csdn.net/cmzhuang/article/details/53537591</a></strong></p>
+<hr>
+<ul>
+<li>第一步，通过构造<code>master</code>伪协议来搜索<code>flag</code></li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">php_value auto_append_file master://search/path=%2fhome%2f&amp;name=flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>wp</code>说的要把正斜杠编码<code>%2f</code>传入才行，原因未知</p>
+<p>写入<code>.htaccess</code>文件后上传，在上传随便一个<code>php</code>文件，这样访问<code>php</code>文件时就会执行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/133722e52e0bfef4d0bc3f65244879b1.png#pic_center" alt=""></p>
+<p>查到<code>flag</code>文件名</p>
+<hr>
+<ul>
+<li>第二步，再修改<code>.htaccess</code>内容，包含文件名</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">php_value auto_append_file /home/hiahiahia_flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>再次上传<code>.htaccess</code>文件，访问<code>php</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/90790197bae3e7630e5f802b1fae655a.png#pic_center" alt=""></p>
+<p>拿到<code>flag:cyberpeace{1b39ac65b450f1a0b22e5b073c851347}</code></p>
+<hr>
+<blockquote>
+<p><strong>知识点：</strong></p>
+<p><strong>1.代码审计</strong></p>
+<p><strong>2.文件包含</strong></p>
+<p><strong>3.htaccess</strong></p>
+</blockquote>
+<h2 id="0x002-结束语"><a href="#0x002-结束语" class="headerlink" title="0x002 结束语"></a>0x002 结束语</h2><hr>
+<blockquote>
+<p><strong><em>自信至上 禁止低头 我心里有一簇迎着烈阳而生的花</em></strong></p>
+</blockquote>
+
                 
             </div>
             <hr/>
@@ -730,7 +919,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://huacheng1122.cn/baidu_verify_code-m7XmXYVUbo.html">https://huacheng1122.cn/baidu_verify_code-m7XmXYVUbo.html</a>
+                    <a href="https://huacheng1122.cn/posts/801ceb23.html">https://huacheng1122.cn/posts/801ceb23.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -767,7 +956,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1242,34 +1439,54 @@ new Valine({
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/baidu_verify_code-m7XmXYVUbo.html">
+                <a href="/posts/801ceb23.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021815.jpg" class="responsive-img" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg" class="responsive-img" alt="攻防世界web高手进阶之blgdel">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">攻防世界web高手进阶之blgdel</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            攻防世界web高手进阶之blgdel
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            花城
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="post-category">
+                                    博客篇
+                                </a>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/CTF%E7%AC%94%E8%AE%B0%E7%AF%87/" class="post-category">
+                                    CTF笔记篇
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1277,37 +1494,56 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/baidu_verify_code-m7XmXYVUbo.html">
+                <a href="/posts/c531792e.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021815.jpg" class="responsive-img" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928013627.jpg" class="responsive-img" alt="图像压缩问题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">图像压缩问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            图像压缩问题
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            花城
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="post-category">
+                                    博客篇
+                                </a>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/%E7%AE%97%E6%B3%95%E7%AF%87/" class="post-category">
+                                    算法篇
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">算法设计与分析</span>
+                    </a>
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c++</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

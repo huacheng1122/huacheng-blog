@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://huacheng1122.cn/posts/801ceb23.html</loc>
+    
+    <lastmod>2021-09-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://huacheng1122.cn/posts/c531792e.html</loc>
     
     <lastmod>2021-09-29</lastmod>
@@ -213,6 +220,20 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://huacheng1122.cn/tags/CTF/</loc>
+    <lastmod>2021-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://huacheng1122.cn/tags/web/</loc>
+    <lastmod>2021-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -224,6 +245,13 @@
   
   <url>
     <loc>https://huacheng1122.cn/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/%E7%AE%97%E6%B3%95%E7%AF%87/</loc>
+    <lastmod>2021-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://huacheng1122.cn/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/CTF%E7%AC%94%E8%AE%B0%E7%AF%87/</loc>
     <lastmod>2021-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
