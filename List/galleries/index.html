@@ -506,7 +506,7 @@
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
     var bannerUrl = "https://bucket-1305778438.cos.ap-shanghai.myqcloud.com/myblog/cover/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(bannerUrl)');
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
