@@ -503,7 +503,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "https://bucket-1305778438.cos.ap-shanghai.myqcloud.com/myblog/cover/" + 9 + '.jpg';
+    var bannerUrl = "https://bucket-1305778438.cos.ap-shanghai.myqcloud.com/myblog/cover/" + new Date().getDate() + '.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
@@ -530,7 +530,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #27239A;">                                               
+                                  style="background-color: #A1AF24;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >博客篇                                  
@@ -547,7 +547,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-default "
-                                  style="background-color: #1F32DA;">                                               
+                                  style="background-color: #594277;">                                               
                               <div class="notebook-skin
                                    chip-default "
                                   >算法篇                                  
@@ -564,7 +564,7 @@
                       <div class="moleskine-notebook">
                           <div class="chip notebook-cover center-align waves-effect waves-light
                            chip-active "
-                                  style="background-color: #A3A0E3;">                                               
+                                  style="background-color: #38F55B;">                                               
                               <div class="notebook-skin
                                    chip-active "
                                   >CTF笔记篇                                  
