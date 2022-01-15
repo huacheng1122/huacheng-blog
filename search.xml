@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Bugku CTF之xxx二手交易市场</title>
+      <link href="posts/973fb9c2.html"/>
+      <url>posts/973fb9c2.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="0x001-wp"><a href="#0x001-wp" class="headerlink" title="0x001 wp"></a>0x001 wp</h2><hr><p>打开题目，点击进入链接，是一个二手交易市场平台</p><p><img src="/posts/973fb9c2/s1.png" alt="图一"></p><p>开始想的可不可能是修改购买价格，然后发现根本没有购买功能，只能先登录看看</p><p><img src="/posts/973fb9c2/s2.png" alt="图二"></p><p>根据我学过的一丢丢漏洞知识，感觉昵称可能有注入，下面的信息编辑会不会有注入，还有就是头像文件上传；</p><p>前两个观摩尝试了半天，没找到头绪。</p><p>看看头像上传，上传文件，抓包</p><p><img src="/posts/973fb9c2/s3.png" alt="图三"></p><p>看到后面好长一串，<code>image</code>参数后面是文件后缀<code>JPEG</code>，然后有<code>base64</code>,再后面应该是图片的<code>base64</code>编码，看看传个一句马试试</p><p>先把<code>&lt;?php @eval($_POST['huacheng']);?&gt;base64</code>加密一下，提换掉后面的一长串，然后改一下后缀为<code>php</code></p><p><img src="/posts/973fb9c2/s4.png" alt="图四"></p><p>响应了上传的马路径，蚁剑连一下，成功。</p><p>打开终端，一层一层往上找，找到<code>flag</code></p><p><img src="/posts/973fb9c2/s5.png" alt="图五"></p><h2 id="0x002-结束语"><a href="#0x002-结束语" class="headerlink" title="0x002 结束语"></a>0x002 结束语</h2><hr><blockquote><p><strong><em>我不后悔我的选择</em></strong></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客篇 </category>
+          
+          <category> CTF笔记篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>i春秋CTF之Hash</title>
       <link href="posts/801e5393.html"/>
       <url>posts/801e5393.html</url>
